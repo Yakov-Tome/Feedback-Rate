@@ -1,8 +1,11 @@
+import Header from "./components/Header";
+
 function App() {
   return (
     <>
-      <div>
-        <p>App</p>
+      <Header text="Rate UI" />
+      <div className="container">
+        <h1>My App</h1>
       </div>
     </>
   );
