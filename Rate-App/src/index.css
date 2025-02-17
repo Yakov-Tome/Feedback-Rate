@@ -30,6 +30,8 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  background-color: #000a20;
+  color: rgb(255, 255, 255);
 }
 
 .card {
@@ -156,7 +158,7 @@ input:focus {
 }
 
 .btn-primary {
-  background-color: #0f766e;
+  background-color: #0f7376;
 }
 
 .btn-secondary {
