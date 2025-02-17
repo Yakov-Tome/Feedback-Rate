@@ -7,6 +7,7 @@ import FeedbackStats from "./components/FeedbackStats";
 import FeedbackForm from "./components/FeedbackForm";
 import AboutPage from "./pages/AboutPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { FeedbackProvider } from "./context/FeedbackContext";
 
 function App() {
   const [feedback, setFeedback] = useState(FeedbackData);
@@ -23,30 +24,32 @@ function App() {
   };
 
   return (
-    <Router>
-      <Header text="Rate UI" />
+    <FeedbackProvider>
+      <Router>
+        <Header text="Rate UI" />
 
-      <div className="container">
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <>
-                <FeedbackForm handleAdd={addFeedback} />
-                <FeedbackStats feedback={feedback} />
-                <FeedbackList
-                  feedback={feedback}
-                  handleDelete={deleteFeedback}
-                />
-              </>
-            }
-          />
+        <div className="container">
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={
+                <>
+                  <FeedbackForm handleAdd={addFeedback} />
+                  <FeedbackStats feedback={feedback} />
+                  <FeedbackList
+                    feedback={feedback}
+                    handleDelete={deleteFeedback}
+                  />
+                </>
+              }
+            />
 
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </div>
-    </Router>
+            <Route path="/about" element={<AboutPage />} />
+          </Routes>
+        </div>
+      </Router>
+    </FeedbackProvider>
   );
 }
 
